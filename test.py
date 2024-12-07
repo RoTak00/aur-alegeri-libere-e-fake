@@ -3,26 +3,28 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
 # Load the CSV file
-data = pd.read_csv("v1.csv", names=["Timestamp", "Number"])
+data = pd.read_csv("output.csv", names=["Timestamp", "Number"])
 
-# Convert the "Number" column to numeric (in case there are any formatting issues)
+# Convert the "Timestamp" column to datetime
+data["Timestamp"] = pd.to_datetime(data["Timestamp"], errors="coerce")
+
+# Drop rows with invalid timestamps or numbers
 data["Number"] = pd.to_numeric(data["Number"], errors="coerce")
+data.dropna(subset=["Timestamp", "Number"], inplace=True)
 
-# Drop rows with invalid numbers
-data.dropna(subset=["Number"], inplace=True)
+# Calculate elapsed time in seconds from the first timestamp
+data["Elapsed_Time"] = (data["Timestamp"] - data["Timestamp"].iloc[0]).dt.total_seconds()
 
-# Generate an index column as a proxy for time (since the timestamp might not be equally spaced)
-data["Index"] = range(len(data))
-
-# Perform linear regression
-slope, intercept, r_value, p_value, std_err = linregress(data["Index"], data["Number"])
+# Perform linear regression using elapsed time
+slope, intercept, r_value, p_value, std_err = linregress(data["Elapsed_Time"], data["Number"])
 
 # Plot the data and the regression line
 plt.figure(figsize=(10, 6))
-plt.plot(data["Index"], data["Number"], label="Actual Numbers", marker='o')
-plt.plot(data["Index"], intercept + slope * data["Index"], label=f"Linear Fit: y={slope:.2f}x+{intercept:.2f}", color="red")
-plt.title("Number Growth Analysis")
-plt.xlabel("Time (Index)")
+plt.plot(data["Elapsed_Time"], data["Number"], label="Actual Numbers", marker='o')
+plt.plot(data["Elapsed_Time"], intercept + slope * data["Elapsed_Time"],
+         label=f"Linear Fit: y={slope:.2f}x+{intercept:.2f}", color="red")
+plt.title("Number Growth Analysis (Time-Based)")
+plt.xlabel("Elapsed Time (seconds)")
 plt.ylabel("Number")
 plt.legend()
 plt.grid()

@@ -12,4 +12,4 @@ Se observă că datele legate de numărul de semnături sunt, de fapt, increment
 
 ## UPDATE
 
-Chiar daca datele totale de la 20:26:34 nu se mai potrivesc cu o linie dreapta, regresia pentru date de la 20:36 (v1.csv) arata clar o noua linie dreapta. Posibil sa se fi schimbat valoarea de incrementare.
+Server-ul da raspuns foarte foarte incet, pot colecta date doar la ~10 secunde. Reparat script-ul pentru a avea in vedere diferentele de timp. E o linie dreapta 100% din nou.
