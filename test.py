@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
 # Load the CSV file
-data = pd.read_csv("output.csv", names=["Timestamp", "Number"])
+data = pd.read_csv("v1.csv", names=["Timestamp", "Number"])
 
 # Convert the "Number" column to numeric (in case there are any formatting issues)
 data["Number"] = pd.to_numeric(data["Number"], errors="coerce")
