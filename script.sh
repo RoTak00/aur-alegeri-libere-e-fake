@@ -20,5 +20,6 @@ while true; do
     # Append the date and number to the CSV file
     echo "$CURRENT_DATE,$NUMBER" >> $OUTPUT_FILE
     
-    
+    # Wait for 2 seconds before the next request
+    sleep 2
 done
