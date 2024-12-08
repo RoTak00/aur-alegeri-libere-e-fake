@@ -1,3 +1,7 @@
+## UPDATE FINAL
+
+Din păcate, site-ul nu mai permite preluarea datelor din c.php în mod automat. Așadar, datele nu mai pot fi colectate. Totuși, cele peste 15.000 de valori veridice pot fi folosite pentru a studia dacă creșterea de pe site este una organică, reală, sau nu, iar eu sunt în continuare de părere că o asemenea creștere liniară nu are cum să fie adevărată.
+
 ### AUR a creat o petitie cu informatii fake
 
 Site-ul [Alegerilibere](https://alegerilibere.ro/index.html) pretinde ca afiseaza numarul de semnaturi stranse.
