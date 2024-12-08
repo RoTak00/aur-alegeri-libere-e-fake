@@ -66,3 +66,7 @@ Site-ul a fost inchis o perioada incepand cu ora 01:00 08.12.2024, si redeschis 
 ## UPDATE
 
 08.12.2024 18:38 - de la ora 17:58, numarul de semnaturi s-a oprit la 839272 si site-ul nu mai e responsiv.
+
+## UPDATE
+
+E pus acum cloudflare pe site, dar API call-ul care ar trebui sa intoarca numarul de semnaturi esueaza cu 500 internal server error.
