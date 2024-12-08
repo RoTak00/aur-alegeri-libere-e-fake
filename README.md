@@ -62,3 +62,7 @@ Server-ul da raspuns foarte foarte incet, pot colecta date doar la ~10 secunde. 
 ## UPDATE
 
 Site-ul a fost inchis o perioada incepand cu ora 01:00 08.12.2024, si redeschis dimineata. Colectarea datelor a reinceput la ora 09:59
+
+## UPDATE
+
+08.12.2024 18:38 - de la ora 17:58, numarul de semnaturi s-a oprit la 839272 si site-ul nu mai e responsiv.
