@@ -35,8 +35,18 @@ if sample_offset is not None and sample_offset < 0:
 # Load the CSV file
 data = pd.read_csv(filename, names=["Timestamp", "Number"])
 
-# Convert the "Timestamp" column to datetime
-data["Timestamp"] = pd.to_datetime(data["Timestamp"], errors="coerce")
+# if max_rows is set, take the first max_rows rows with offset 
+if max_samples is not None: 
+    if sample_offset is not None:
+        data = data.iloc[sample_offset:sample_offset+max_samples]
+    else:
+        data = data.head(max_samples)
+
+data["Timestamp"] = data["Timestamp"].apply(
+    lambda x: pd.to_datetime(x, format="%Y-%m-%dT%H:%M:%S.%fZ", errors="coerce")
+    if isinstance(x, str) and x.endswith("Z")
+    else pd.to_datetime(x, errors="coerce")
+)
 
 # Drop rows with invalid timestamps or numbers
 data["Number"] = pd.to_numeric(data["Number"], errors="coerce")
@@ -46,13 +56,6 @@ data.dropna(subset=["Timestamp", "Number"], inplace=True)
 data["Elapsed_Time"] = (data["Timestamp"] - data["Timestamp"].iloc[0]).dt.total_seconds()
 
 no_values = data["Number"].count()
-
-# if max_rows is set, take the first max_rows rows with offset 
-if max_samples is not None: 
-    if sample_offset is not None:
-        data = data.iloc[sample_offset:sample_offset+max_samples]
-    else:
-        data = data.head(max_samples)
 
 no_reduced_values = data["Number"].count()
 # Perform linear regression using elapsed time
