@@ -1,6 +1,8 @@
-## UPDATE FINAL
+# UPDATE 09.12
 
-Din păcate, site-ul nu mai permite preluarea datelor din c.php în mod automat. Așadar, datele nu mai pot fi colectate. Totuși, cele peste 15.000 de valori veridice pot fi folosite pentru a studia dacă creșterea de pe site este una organică, reală, sau nu, iar eu sunt în continuare de părere că o asemenea creștere liniară nu are cum să fie adevărată.
+Un coleg anonim de pe reddit a pus la dispozitie un script care permite colectarea datelor in momentul in care site-ul le cere in mod uzual, undeva la 20 de secunde.
+
+Astfel, colectarea datelor a putut continua si astazi, cu 800 de esantioane de la 11:11:00 9.12.24 pana la 18:34:00.
 
 ### AUR a creat o petitie cu informatii fake
 
